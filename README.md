@@ -1,4 +1,4 @@
-# Asteroids-C-plus-plus
+# Asteroids-C++
 Asteroids in c++ with sfml lib
 
 Currently this is in beta version
