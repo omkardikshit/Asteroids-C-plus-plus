@@ -1,19 +1,17 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <math.h>
+#include "Common.h"
+#include "Ship.h"
 
 using namespace std;
 using namespace sf;
-
 //vars
-int fps = 60;
-int width = 640;
-int height = 480;
-float dtr = 0.017453f;
-RenderWindow window(VideoMode(width, height), "Asteroids");
-
-int heading = 0;
-class Ship{
+extern int width;
+extern int height;
+extern int fps;
+extern Vector2f pos;
+extern RenderWindow window;
+/*class Ship{
 public:
 	Vector2f pos = Vector2f(width / 2, height / 2);
 	int r = 20;
@@ -55,12 +53,11 @@ public:
 		heading += angle;
 	}
 
-};
+};*/
 
 int main() {
 	window.setFramerateLimit(fps);
 	Ship ship;
-	bool thrust;
 	while (window.isOpen()) {
 		Event e;
 		while (window.pollEvent(e)) {
@@ -73,11 +70,12 @@ int main() {
 		if (Keyboard::isKeyPressed(Keyboard::Up)) ship.boost();
 		if (Keyboard::isKeyPressed(Keyboard::Down)) ship.stop();
 
+		if (pos.x < 0) pos.x = width;
+		if (pos.x > width) pos.x = 0;
+		if (pos.y < 0) pos.y = height;
+		if (pos.y > height) pos.y = 0;
+
 		ship.update();
-		if (ship.pos.x < 0) ship.pos.x = width;
-		if (ship.pos.x > width) ship.pos.x = 0;
-		if (ship.pos.y < 0) ship.pos.y = height;
-		if (ship.pos.y > height) ship.pos.y = 0;
 		window.clear(Color(51,51,51));
 		ship.render();
 		window.display();
