@@ -8,7 +8,8 @@ class Ship
 {
     public:
         Vector2f vel = Vector2f(0, 0);
-        int r = 20;
+        Vector2f pos;
+        int r;
         float dtr = 0.017453f;
         int heading = 0;
         Ship();

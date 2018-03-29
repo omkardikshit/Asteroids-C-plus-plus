@@ -7,18 +7,20 @@ using namespace std;
 using namespace sf;
 
 extern RenderWindow window;
-extern Vector2f pos;
+extern int width,height;
 Ship::Ship()
 {
+    this->pos = Vector2f(width/2,height/2);
+    this->r = 20;
 
 }
 
 void Ship::render(){
     ConvexShape convex;
     convex.setPointCount(3);
-    convex.setPoint(0, Vector2f(-r, r));
-    convex.setPoint(1, Vector2f(r, r));
-    convex.setPoint(2, Vector2f(0, -r));
+    convex.setPoint(0, Vector2f(-this->r,this->r));
+    convex.setPoint(1, Vector2f(this->r, this->r));
+    convex.setPoint(2, Vector2f(0, -this->r));
     convex.setPosition(pos);
     convex.setFillColor(Color(51, 51, 51));
     convex.setOutlineColor(Color(255, 255, 255));
