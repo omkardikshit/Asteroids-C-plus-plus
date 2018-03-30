@@ -11,6 +11,6 @@ public:
 	Asteroids();
 	void render();
 	void update();
-	int r,s;
+	int radius,vertex;
+	bool p,n;
 };
-

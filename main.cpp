@@ -7,24 +7,24 @@
 
 using namespace std;
 using namespace sf;
+
 //vars
 extern int width;
 extern int height;
 extern int fps;
 extern RenderWindow window;
 
+int len = 7;
+
 int main() {
-	int len = 5;
 	srand(time(NULL));
-	Asteroids as[5];
+	Asteroids as[7];
 	window.setFramerateLimit(fps);
 	Ship ship;
 	while (window.isOpen()) {
 		Event e;
 		while (window.pollEvent(e)) {
-			if (e.type == Event::Closed) {
-				window.close();
-			}
+			if (e.type == Event::Closed)window.close();
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left)) ship.turn(-5);
 		if (Keyboard::isKeyPressed(Keyboard::Right)) ship.turn(5);
@@ -37,16 +37,10 @@ int main() {
 		if (ship.pos.y > height) ship.pos.y = 0;
 
 		ship.update();
-		for (int i = 0; i < len; i++)
-		{
-			as[i].update();
-		}
+		for (int i = 0; i < len; i++)as[i].update();
 		window.clear(Color(51, 51, 51));
+		for (int i = 0; i < len; i++)as[i].render();
 		ship.render();
-		for (int i = 0; i < len; i++)
-		{
-			as[i].render();
-		}
 		window.display();
 	}
 

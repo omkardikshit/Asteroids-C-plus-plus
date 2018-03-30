@@ -4,8 +4,8 @@
 
 class Common
 {
-public:
-	Common();
+    public:
+        Common();
 };
 
 #endif // COMMON_H
