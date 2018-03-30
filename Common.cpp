@@ -9,5 +9,5 @@ int fps = 60;
 RenderWindow window(VideoMode(width, height), "Asteroids");
 Common::Common()
 {
-    //ctor
+	//ctor
 }

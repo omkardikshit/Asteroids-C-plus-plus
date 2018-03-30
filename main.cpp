@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "Common.h"
 #include "Ship.h"
+#include "Asteroids.h"
+#include <vector>
 
 using namespace std;
 using namespace sf;
@@ -12,6 +14,9 @@ extern int fps;
 extern RenderWindow window;
 
 int main() {
+	int len = 5;
+	srand(time(NULL));
+	Asteroids as[5];
 	window.setFramerateLimit(fps);
 	Ship ship;
 	while (window.isOpen()) {
@@ -32,8 +37,16 @@ int main() {
 		if (ship.pos.y > height) ship.pos.y = 0;
 
 		ship.update();
-		window.clear(Color(51,51,51));
+		for (int i = 0; i < len; i++)
+		{
+			as[i].update();
+		}
+		window.clear(Color(51, 51, 51));
 		ship.render();
+		for (int i = 0; i < len; i++)
+		{
+			as[i].render();
+		}
 		window.display();
 	}
 
