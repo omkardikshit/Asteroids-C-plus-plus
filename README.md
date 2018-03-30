@@ -4,8 +4,8 @@ Asteroids in c++ with sfml lib
 Currently this is in beta version
 
 
-the player can only move
+the player can move and here and there are asteroids
 
 LEFT RIGHT UP DOWN
 
---if someone can clean my code it would better
+Note: if someone can clean my code it would help me
